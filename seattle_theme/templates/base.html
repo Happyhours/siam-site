@@ -146,28 +146,8 @@
 		</header>
 		<!-- End header -->
         <!-- ======================================= content ======================================= -->
-        <div class="container">
-            {% nevercache %}
-            {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    {{ message }}
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}
-            {% endnevercache %}
 
-            <h1>{% block title %}{% endblock %}</h1>
-
-            <ul class="breadcrumb">
-            {% spaceless %}
-            {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
-            {% endspaceless %}
-            </ul>
-        </div>
+        {% block main %}{% endblock %}
 
 		<!-- End content -->
 		<!-- footer -->
