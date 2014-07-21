@@ -49,7 +49,8 @@
 <link rel="stylesheet" type="text/css" href="{% static "js-plugin/appear/nekoAnim.css" %}">
 <!-- Custom css -->
 <link type="text/css" rel="stylesheet" href="{% static "css/layout.css" %}">
-<link type="text/css" id="colors" rel="stylesheet" href="{% static "css/colors.css" %}">
+<!--<link type="text/css" id="colors" rel="stylesheet" href="{% static "css/colors.css" %}">-->
+<link type="text/css" id="colors" rel="stylesheet" href="{% static "css/sea-green.css" %}">
 <link type="text/css" rel="stylesheet" hhref="{% static "css/custom.css" %}">
 
 <!-- Favicons
@@ -113,106 +114,117 @@
 {% block extra_head %}{% endblock %}
 </head>
 
-<body id="{% block body_id %}body{% endblock %}">
+<body class="activateAppearAnimation">
+	<!-- Primary Page Layout
+	================================================== -->
+	<!-- globalWrapper -->
+    <div id="globalWrapper">
+		<header class="navbar-fixed-top">
+			<!-- header -->
+			<div id="mainHeader" role="banner">
+				<div class="container">
+					<nav class="navbar navbar-default scrollMenu" role="navigation">
+						<div class="navbar-header">
+							<!-- responsive navigation -->
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">{% trans "Toggle Navigation" %}</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<!-- Logo -->
+							<a class="navbar-brand" href="/"><img src="{% static "images/main-logo.png" %}" alt="SEATTLE website template"/></a>
+						</div>
+						<div class="collapse navbar-collapse" id="mainMenu">
+							<!-- Main navigation -->
+                            {% page_menu "pages/menus/dropdown.html" %}
+							<!-- End main navigation -->
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- End header -->
+        <!-- ======================================= content ======================================= -->
+        <div class="container">
+            {% nevercache %}
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endnevercache %}
 
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-<div class="container">
-<div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">{% trans "Toggle Navigation" %}</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-    {% if settings.SITE_TITLE %}<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}
-    {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}</p>{% endif %}
-</div>
-<div class="navbar-collapse collapse">
-    {% search_form "all" %}
-    {% page_menu "pages/menus/dropdown.html" %}
-</div>
-</div>
-</div>
+            <h1>{% block title %}{% endblock %}</h1>
 
-<div class="container">
+            <ul class="breadcrumb">
+            {% spaceless %}
+            {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
+            {% endspaceless %}
+            </ul>
+        </div>
 
-{% nevercache %}
-{% if messages %}
-<div class="messages">
-{% for message in messages %}
-<div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    {{ message }}
-</div>
-{% endfor %}
-</div>
-{% endif %}
-{% endnevercache %}
+		<!-- End content -->
+		<!-- footer -->
+		<footer id="footerWrapper">
+			<section id="mainFooter" data-nekoanim="fadeInUp" data-nekodelay="200">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="footerWidget">
+								<img src="{% static "images/neko-logo.png" %}" alt="latest Little Neko news" id="footerLogo">
+								<p><a href="http://www.little-neko.com" title="Little Neko, website template creation">Little Neko</a> is a web design and development studio. We build responsive HTML5 and CSS3 templates, integrating best web design practices and up-to-date web technologies to create great user experiences. We love what we do and we hope you do too! </p>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="footerWidget">
+								<h3>Little NEKO</h3>
+								<address>
+									<p> <i class="icon-location"></i>&nbsp;77 Mass. Ave., E14/E15<br>
+										Seattle, MA 02139-4307 USA <br>
+										<i class="icon-phone"></i>&nbsp;615.987.1234 <br>
+										<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">little@little-neko.com</a> </p>
+								</address>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="footerWidget">
+								<h3>Follow us, we are social</h3>
+								<ul class="socialNetwork">
+									<li><a href="#" class="tips" title="follow me on Facebook"><i class="icon-facebook-1 iconRounded"></i></a></li>
+									<li><a href="#" class="tips" title="follow me on Twitter"><i class="icon-twitter-bird iconRounded"></i></a></li>
+									<li><a href="#" class="tips" title="follow me on Google+"><i class="icon-gplus-1 iconRounded"></i></a></li>
+									<li><a href="#" class="tips" title="follow me on Linkedin"><i class="icon-linkedin-1 iconRounded"></i></a></li>
+									<li><a href="#" class="tips" title="follow me on Dribble"><i class="icon-dribbble iconRounded"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section  id="footerRights">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<p>Copyright © 2014 <a href="http://www.little-neko.com" target="blank">Little NEKO</a> / All rights reserved.</p>
+						</div>
 
-<h1>{% block title %}{% endblock %}</h1>
+					</div>
+				</div>
+			</section>
+		</footer>
 
-<ul class="breadcrumb">
-{% spaceless %}
-{% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
-{% endspaceless %}
-</ul>
-
-</div>
-
-<div class="container">
-<div class="row">
-
-<div class="col-md-2 left">
-    {% block left_panel %}
-    <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
-    {% endblock %}
-</div>
-
-<div class="col-md-7 middle">
-    {% block main %}{% endblock %}
-</div>
-
-<div class="col-md-3 right">
-    {% nevercache %}
-    {% include "includes/user_panel.html" %}
-    {% endnevercache %}
-    <div class="panel panel-default">
-    <div class="panel-body">
-    {% block right_panel %}
-    {% ifinstalled mezzanine.twitter %}
-    {% include "twitter/tweets.html" %}
-    {% endifinstalled %}
-    {% endblock %}
-    </div>
-    </div>
-</div>
-
-</div>
-</div>
-
-<footer>
-<div class="container">
-{% page_menu "pages/menus/footer.html" %}
-
-<div class="row">
-<p class="site-info text-center">
-    {% trans "Powered by" %}
-    <a href="http://mezzanine.jupo.org">Mezzanine</a>{% ifinstalled cartridge.shop %},
-    <a href="http://cartridge.jupo.org">Cartridge</a>{% endifinstalled %}
-    {% trans "and" %}
-    <a href="http://www.djangoproject.com">Django</a>
-    <span class="separator">|</span>
-    {% trans "Theme by" %} <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>
-    {% ifinstalled mezzanine.mobile %}
-    <span class="separator">|</span>
-    <a href="{% url "set_device" "mobile" %}?next={{ request.path }}">{% trans "View Mobile Site" %}</a>
-    {% endifinstalled %}
-</p>
-</div>
-</div>
-</footer>
-
-{% include "includes/footer_scripts.html" %}
+        {% include "includes/footer_scripts.html" %}
+		<!-- End footer -->
+	</div>
+	<!-- End globalWrapper -->
+    <!-- End Document
+    ================================================== -->
 
 </body>
 </html>
