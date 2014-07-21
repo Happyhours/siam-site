@@ -8,103 +8,192 @@ This template is provided as a custom template for the homepage, for
 when it is configured as an editable page in the navigation tree. Feel
 free to modify it.
 -->
-<section id="noSlider">
-	<section id="noSliderWrapper" class="iosBg pt40">
+<section id="page">
+	<section>
+		<section class="mb15">
+			<div class="nekoDataOwl owl-carousel" data-neko_items="2" data-neko_singleitem="false" data-neko_navigation="false" data-neko_pagination="true" data-neko_mousedrag="true">
+				<img src="{% static "images/slider/camera/camera-slide1.jpg" %}" alt="SEATTLE premium website template" class="img-responsive"/>
+				<img src="{% static "images/slider/camera/camera-slide2.jpg" %}" alt="SEATTLE premium website template" class="img-responsive"/>
+				<img src="{% static "images/slider/camera/camera-slide3.jpg" %}" alt="SEATTLE premium website template" class="img-responsive"/>
+				<img src="{% static "images/slider/camera/camera-slide4.jpg" %}" alt="SEATTLE premium website template" class="img-responsive"/>
+			</div>
+		</section>
+	</section>
+	<section id="content">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-4" data-nekoanim="fadeInLeftBig" data-nekodelay="100">
-					<h1>This is not a slider</h1>
-					<p>Beautiful, responsive, HTML5, CSS3 Template.
-						SEATTLE will help you build your website in no time!</p>
-					<a href="#" target="_blank" class="btn btn-lg">Get it right now!</a>
+			<div class="row mt30 mb30">
+				<div class="col-md-4">
+					<h2>Our services </h2>
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+										Consulting
+									</a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse in" >
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+										Graphic design
+									</a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse" >
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+										Cooking
+									</a>
+								</h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-8" data-nekoanim="fadeInRight" data-nekodelay="50">
-					<img src="{% static "images/theme-pics/devices.png" %}" alt="SEATTLE premium website template" class="img-responsive" />
+				<div class="col-md-4">
+					<h2>Our philosophy </h2>
+					<img src="images/portfolio/vign2.jpg" alt="" class="img-responsive imgBorder mb15">
+					<p>We create beautiful, modern and professional templates, carefully designed and coded with love</p>
+					<a href="" class="btn btn-primary"><i class="icon-right-circle"></i>read more</a>
+				</div>
+				<div class="col-md-4">
+					<h2>Our process</h2>
+					<article class="featureBox">
+						<i class="icon-lightbulb iconRounded"></i>
+						<div class="boxContent">
+							<h2>Design</h2>
+							<p>
+								Nullam sed tortor odio. Suspendisse tincidunt dictum nisi.
+							</p>
+						</div>
+					</article>
+					<article class="featureBox">
+						<i class="icon-beaker iconRounded"></i>
+						<div class="boxContent">
+							<h2>Code</h2>
+							<p>
+								Nullam sed tortor odio. Suspendisse tincidunt dictum nisi.
+							</p>
+						</div>
+					</article>
+					<article class="featureBox">
+						<i class="icon-ok iconRounded"></i>
+						<div class="boxContent">
+							<h2>Debug</h2>
+							<p>
+								Nullam sed tortor odio. Suspendisse tincidunt dictum nisi.
+							</p>
+						</div>
+					</article>
 				</div>
 			</div>
 		</div>
+				<section class="pricing pt30 pb30 color1">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="pricingBloc">
+									<h2>Free</h2>
+									<h3>0$<span>per month</span></h3>
+									<ul>
+										<li>This is what you get For free</li>
+										<li>Not bad, but could be better</li>
+										<li>-</li>
+										<li>-</li>
+										<li>-</li>
+										<li>-</li>
+									</ul>
+									<p class="sign">
+										<a class="btn" href="#">
+											Sign up
+										</a>
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="pricingBloc">
+									<h2>Silver</h2>
+									<h3>10$<span>per month</span></h3>
+									<ul>
+										<li>This is a little better</li>
+										<li>Though</li>
+										<li>Not the best plan for you!</li>
+										<li>-</li>
+										<li>-</li>
+										<li>-</li>
+									</ul>
+									<p class="sign">
+										<a class="btn" href="#">
+											Sign up
+										</a>
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="pricingBloc focusPlan">
+									<h2>Gold</h2>
+									<h3>25$<span>per month</span></h3>
+									<ul>
+										<li>Honestly, go Premium</li>
+										<li>We have a lot</li>
+										<li>of cool features for you!</li>
+										<li>Really, you will love what you will get</li>
+										<li>Come on!!</li>
+										<li>Please!!!</li>
+									</ul>
+									<p class="sign">
+										<a class="btn btn-large" href="#">
+											Sign up
+										</a>
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="pricingBloc">
+									<h2>Platinium</h2>
+									<h3>40$<span>per month</span></h3>
+									<ul>
+										<li>This one is super good</li>
+										<li>Super awesome</li>
+										<li>Just the right plan for you</li>
+										<li>If you are</li>
+										<li>A super pro!</li>
+										<li>No kidding</li>
+									</ul>
+									<p class="sign">
+										<a class="btn" href="#">
+											Sign up
+										</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 	</section>
-		<section id="content">
-			<!-- icon boxes -->
-			<section class="pt40 pb40" id="services" data-nekoanim="bounceInUp" data-nekodelay="100">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 text-center mb30">
-							<h1>Our services</h1>
-							<h2 class="subTitle">We are doing a couple of things you might be interested in</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="featureBox posLeft">
-								<i class="icon-heart iconBig iconRounded"></i>
-								<div class="boxContent">
-									<h2>Clean design</h2>
-									<p>Elegant layouts that help you organize your content in the best way</p>
-								</div>
-							</div>
-						</div>
 
-						<div class="col-md-6">
-							<div class="featureBox">
-								<i class="icon-tablet iconBig iconRounded"></i>
-								<div class="boxContent">
-									<h2>HTML5 &amp; CSS3</h2>
-									<p>Built with modern technologies like HTML5 and CSS3, SEO optimized</p>
-								</div>
-							</div>
-						</div>
 
-						<div class="col-md-6">
-							<div class="featureBox posLeft">
-								<i class="icon-beaker iconBig iconRounded"></i>
-								<div class="boxContent">
-									<h2>Responsive design</h2>
-									<p>Compatible with various desktop, tablet, and mobile devices.</p>
-								</div>
-							</div>
-						</div>
 
-						<div class="col-md-6">
-							<div class="featureBox">
-								<i class="icon-edit iconBig iconRounded"></i>
-								<div class="boxContent">
-									<h2>Easy Customization</h2>
-									<p>Clear code and documentation, base on Bootstrap 3</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</section>
-			<!-- icon boxes -->
-			<!-- call to action -->
-			<section class="pt40 pb40">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="ctaBox color2" data-nekoanim="bounceIn" data-nekodelay="100">
-								<div class="ctaBoxText">
-									<h1>
-										SEATTLE Bootstrap Website Template
-									</h1>
-									<h2>is perfect for clean presentation of your business.
-									</h2>
-								</div>
-								<div class="ctaBoxBtn">
-									<a class="btn btn-lg" title="" href="#" target="blank">
-										<i class="icon-flash"></i> purchase now
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- call to action -->
-		</section>
-	</section>
+</section>
 
 {{ block.super }}
 {% endblock %}
