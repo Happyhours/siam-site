@@ -157,6 +157,7 @@
 		<!-- End content -->
 		<!-- footer -->
 		<footer id="footerWrapper">
+            <!--
 			<section id="mainFooter" data-nekoanim="fadeInUp" data-nekodelay="200">
 				<div class="container">
 					<div class="row">
@@ -191,17 +192,19 @@
 						</div>
 					</div>
 				</div>
-			</section>
-			<section  id="footerRights">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p>Copyright © 2014 <a href="http://www.little-neko.com" target="blank">Little NEKO</a> / All rights reserved.</p>
-						</div>
-
-					</div>
-				</div>
-			</section>
+			</section>-->
+            <section id="footerRights">
+        		<div class="container">
+        			<div class="row">
+        				<div class="col-md-6">
+                            <p class="copyright">Copyright © 2014 <a href="http://www.little-neko.com" target="blank">Little NEKO</a> / All rights reserved.</p>
+        				</div>
+        				<div class="col-md-6">
+                            {% page_menu "pages/menus/footer_tree.html" %}
+        				</div>
+        			</div>
+        		</div>
+        	</section>
 		</footer>
 
         {% include "includes/footer_scripts.html" %}
