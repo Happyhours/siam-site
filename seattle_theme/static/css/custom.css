@@ -1,5 +1,13 @@
 /* Put your custom css here */
 
+.navbar-brand h2 {
+    font-size: 26px;
+}
+.navbar-brand span {
+    color: #98b90f;
+}
+
+
 /*========================================
             MEZZANINE FORMS
 ==========================================
