@@ -30,22 +30,55 @@ footer {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 76px;
+    /* Margin bottom by footer height */
+    margin-bottom: 76px;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 76px;
-  background-color: #f5f5f5;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 76px;
+    background-color: #f5f5f5;
 }
+
+
+.iconBig.iconRounded span {
+    line-height: 100px;
+    /*color:#98b90f;*/
+}
+
+
+.bokaTid {
+    padding-left:15px;
+}
+.bokaTid h2, .boxContent h3 {
+    font-weight:400;
+}
+.bokaTid {
+    padding-left:15px;
+}
+
+ /* CUSTOM TABLE CSS */
+
+.borderless  > tbody > tr > td {
+    border: none;
+}
+
+.borderless>thead>tr>th,
+.borderless>tbody>tr>th,
+.borderless>tfoot>tr>th,
+.borderless>thead>tr>td,
+.borderless>tbody>tr>td,
+.borderless>tfoot>tr>td {
+    padding: 0 0 0 0;
+}
+
 
 /*========================================
             MEZZANINE FORMS
