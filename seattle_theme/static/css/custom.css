@@ -53,7 +53,7 @@ footer {
     /*color:#98b90f;*/
 }
 
-
+/*
 .bokaTid {
     padding-left:15px;
 }
@@ -62,6 +62,10 @@ footer {
 }
 .bokaTid {
     padding-left:15px;
+}*/
+
+.primary-color {
+    color: #aed310;
 }
 
  /* CUSTOM TABLE CSS */
