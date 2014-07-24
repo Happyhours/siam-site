@@ -1,3 +1,14 @@
+nav.stick {
+
+    margin-top:12px;
+}
+
+a.nav-active {
+    color:red;
+}
+
+
+
 /* Put your custom css here */
 
 .navbar-brand h2 {
@@ -70,7 +81,7 @@ footer {
 
  /* CUSTOM TABLE CSS */
 
-.borderless  > tbody > tr > td {
+.borderless > tbody > tr > td {
     border: none;
 }
 
@@ -81,6 +92,22 @@ footer {
 .borderless>tbody>tr>td,
 .borderless>tfoot>tr>td {
     padding: 0 0 0 0;
+}
+
+.pricelist-borderless > tbody > tr > td {
+    border: none;
+}
+
+.pricelist-borderless > tfoot > tr > td {
+    border: none;
+    font-weight: bold;
+}
+
+.pricelist-borderless h3 {
+    margin-bottom: 0px;
+}
+.pricelist-borderless h4 {
+    margin-bottom: 0px;
 }
 
 

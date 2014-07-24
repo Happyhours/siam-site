@@ -11,7 +11,6 @@ window.onload = function () { "use strict"; gaSSDSLoad(""); }; //load after page
 
 
 
-
 var isMobile = false;
 var isDesktop = false;
 
@@ -1481,5 +1480,25 @@ function toTop(mobile){
         $('#nekoToTop').remove();
 
     }
-
 }
+
+/*************** Custom Scroll  **********
+
+http://callmenick.com/2013/04/22/single-page-site-with-smooth-scrolling-highlighted-link-and-fixed-navigation/
+
+Added scripts/package: jquery.scrollTo-1.4.12
+
+*/
+$(document).ready(function(){
+
+    /**
+     * This part causes smooth scrolling using scrollto.js
+     * We target all a tags inside the nav, and apply the scrollto.js to it.
+     */
+    $("nav a").click(function(evn){
+        evn.preventDefault();
+        $('html,body').scrollTo(this.hash, this.hash);
+    });
+
+});
+/*************** Custom Scroll END ***********/

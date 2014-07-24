@@ -15,3 +15,4 @@ class HomePage(Page, RichText):
     class Meta:
         verbose_name = _("Home page")
         verbose_name_plural = _("Home pages")
+        
