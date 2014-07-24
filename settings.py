@@ -251,6 +251,8 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
+    "storages",
+    "gunicorn",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -332,6 +334,63 @@ OPTIONAL_APPS = (
 #     "SECRET_KEY": SECRET_KEY,
 #     "NEVERCACHE_KEY": NEVERCACHE_KEY,
 # }
+
+
+###################
+# HEROKU SETTINGS #
+###################
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+##################
+# DJANGO         #
+##################
+SECRET_KEY = "a5cd1262-b4bf-4e15-bb6f-1dba80c283c17af2e03f-288a-4756-bd15-39a65795a149ce1704a8-b54d-41bc-87bb-2df39e8e9333"
+NEVERCACHE_KEY = "b6c5af80-eea2-4504-a437-41f89ff2e73c817f20cf-d654-4952-ae27-56c88a381c776fdfe0a7-0f0d-4809-9f24-5eac0f33f2eb"
+
+###################
+# S3 STATIC FILES #
+###################
+
+AWS_QUERYSTRING_AUTH = False
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'siam-site'
+AWS_PRELOAD_METADATA = True #helps collectstatic do updates
+
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
+
+MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+###########
+# LOGGING #
+###########
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+}
+##################
+# MAIL SETTINGS #
+##################
+
+# Easy setup with sendgrid.com or similar service
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST= "smtp.hostname.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 
 ##################
