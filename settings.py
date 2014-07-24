@@ -363,7 +363,7 @@ NEVERCACHE_KEY = "b6c5af80-eea2-4504-a437-41f89ff2e73c817f20cf-d654-4952-ae27-56
 AWS_QUERYSTRING_AUTH = False
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'siam-site'
+AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
 AWS_PRELOAD_METADATA = True #helps collectstatic do updates
 
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
