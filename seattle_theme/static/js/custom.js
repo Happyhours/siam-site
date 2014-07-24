@@ -1126,22 +1126,13 @@ function appendBootstrap() {
 
 function initialize(id) {
 	"use strict";
-	var image = 'images/icon-map.png';
+	/*var image = 'images/icon-map.png';*/
 
 	var overlayTitle = 'Agencies';
 
 	var locations = [
         //point number 1
-        ['Madison Square Garden', '4 Pennsylvania Plaza, New York, NY'],
-
-        //point number 2
-        ['Best town ever', 'Santa Cruz', 36.986021, -122.02216399999998],
-
-        //point number 3
-        ['Located in the Midwestern United States', 'Kansas'],
-
-        //point number 4
-        ['I\'ll definitly be there one day', 'Chicago', 41.8781136, -87.62979819999998]
+        ['Best town ever', 'Santa Cruz', 58.415161, 15.619663],
         ];
 
         /*** DON'T CHANGE ANYTHING PASSED THIS LINE ***/
@@ -1297,7 +1288,7 @@ for (i = 0; i < locations.length; i++) {
 
 			marker = new google.maps.Marker({
 				position: myLatlng,
-				icon:image,
+				/*icon:image,*/
 				title: overlayTitle,
 				map: map
 			});
@@ -1497,7 +1488,9 @@ $(document).ready(function(){
      */
     $("#subnav a").click(function(evn){
         evn.preventDefault();
-        $('html,body').scrollTo(this.hash, this.hash);
+        /*$('html,body').scrollTo(this.hash, this.hash);*/
+        $('html,body').scrollTo(this.hash, this.hash, {offset: -92});
+
     });
 
 });
