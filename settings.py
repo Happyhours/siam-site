@@ -103,14 +103,14 @@ ALLOWED_HOSTS = []
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = None
+TIME_ZONE = 'Europe/Stockholm'
 
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "sv-SE"
 
 # Supported languages
 _ = lambda s: s
@@ -130,7 +130,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
 
 # Tuple of IP addresses, as strings, that:
 #   * See debug comments, when DEBUG is true
@@ -199,22 +199,22 @@ CACHE_MIDDLEWARE_KEY_PREFIX = PROJECT_DIRNAME
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = "/static/"
+#STATIC_URL = "/static/"
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
+#STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = STATIC_URL + "media/"
+#MEDIA_URL = STATIC_URL + "media/"
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
+#MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 
 # Package/module name to import the root urlpatterns from for the project.
 ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
@@ -251,7 +251,6 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
-    "storages",
     "gunicorn",
 )
 
@@ -336,62 +335,190 @@ OPTIONAL_APPS = (
 # }
 
 
-# ###################
-# # HEROKU SETTINGS #
-# ###################
-#
-# # Parse database configuration from $DATABASE_URL
-# import dj_database_url
-# DATABASES['default'] =  dj_database_url.config()
-#
-# # Honor the 'X-Forwarded-Proto' header for request.is_secure()
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-#
-# # Allow all host headers
-# ALLOWED_HOSTS = ['*']
-#
-# ##################
-# # DJANGO         #
-# ##################
-# SECRET_KEY = "a5cd1262-b4bf-4e15-bb6f-1dba80c283c17af2e03f-288a-4756-bd15-39a65795a149ce1704a8-b54d-41bc-87bb-2df39e8e9333"
-# NEVERCACHE_KEY = "b6c5af80-eea2-4504-a437-41f89ff2e73c817f20cf-d654-4952-ae27-56c88a381c776fdfe0a7-0f0d-4809-9f24-5eac0f33f2eb"
-#
-# ###################
-# # S3 STATIC FILES #
-# ###################
-#
-# AWS_QUERYSTRING_AUTH = False
-# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-# AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
-# AWS_PRELOAD_METADATA = True #helps collectstatic do updates
-#
-# STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-#
-# STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-# ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
-#
-# MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-# ###########
-# # LOGGING #
-# ###########
-#
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': True,
-# }
-# ##################
-# # MAIL SETTINGS #
-# ##################
-#
-# # Easy setup with sendgrid.com or similar service
-# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-# EMAIL_HOST= "smtp.hostname.com"
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
+###################
+# HEROKU SETTINGS #
+###################
 
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+##################
+# DJANGO         #
+##################
+SECRET_KEY = os.environ.get("SECRET_KEY", "")
+NEVERCACHE_KEY = os.environ.get("NEVERCACHE_KEY", "")
+
+#####################
+# CUSTOM THUMBNAILS #
+# THAT WORK WITH S3 #
+#####################
+
+#
+# Bypass Mezzanines default thumbnails code by installing django-smart-load-tag
+# and using sorl-thumbnails or easy_thumbnails etc without ugly hacks
+#
+# See: https://github.com/codysoyland/django-smart-load-tag
+#
+INSTALLED_APPS += ('smart_load_tag',)
+
+#
+# Use sorl-thumbnail instead of Mezzanines default one that does not work with S3
+#
+# See: http://sorl-thumbnail.readthedocs.org
+#
+INSTALLED_APPS += ('sorl.thumbnail',)
+
+
+
+###################
+# CACHE #
+###################
+from memcacheify import memcacheify
+
+CACHES = memcacheify()
+
+
+
+#############################
+# CUSTOM MEZZANINE SETTINGS #
+#############################
+FORMS_USE_HTML5 = True
+
+
+###################
+# S3 STATIC FILES #
+###################
+
+# KNOWN BUGS -- https://www.mail-archive.com/mezzanine-users@googlegroups.com/msg01543.html
+# July 30, 2014
+#
+# (1.)
+# https://github.com/boto/boto/issues/1477
+#
+# (2.)
+# https://bitbucket.org/david/django-storages/issue/181/from-s3-import-callingformat-seems-broke
+# 
+# try:
+#     from S3 import CallingFormat
+#     AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
+# except ImportError:
+#     # TODO: Fix this where even if in Dev this class is called.
+#     pass
+# 
+# The below link explains some of the settings in Boto which you can configure tp optimise etc.
+# http://www.laurii.info/2013/05/improve-s3boto-djangostorages-performance-custom-settings/
+#
+
+
+#
+# django-storages settings
+# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+#
+INSTALLED_APPS += ('storages',)
+
+# Also uninstall filebrowser-safe to default django with bin/post_compile.py heroku hook
+
+# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "")
+AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "")
+
+AWS_QUERYSTRING_AUTH = False #This will make sure that the URLs to the files are generated WITHOUT the extra parameters.
+AWS_PRELOAD_METADATA = True #helps collectstatic do updates
+#AWS_S3_SECURE_URLS = False
+#AWS_S3_ENCRYPTION =  False
+#AWS_S3_SECURE_URLS=False
+#AWS_AUTO_CREATE_BUCKET = True #better to create own bucket with right region then auto-create on us-region.
+
+STATIC_URL = '//' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+MEDIA_URL = '//' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
+
+# Only used if you want to push all files with collectstatic from developer env to S3 or some place. 
+#STATIC_ROOT = 'DOESNOTMATTER' 
+#MEDIA_ROOT = 'DOESNOTMATTER' 
+
+
+
+############################
+# ADVANCED S3 STATIC FILES #
+############################
+
+# s3boto already has subdomain set on default so no need to change or touch this
+# Subdomain = <BUCKETNAME>.s3.amazonaws.com/
+#AWS_CALLING_FORMAT 
+
+
+# AWS_HEADERS (optional)
+# From: https://github.com/pydanny/cookiecutter-django/ 
+# AWS cache settings, don't change unless you know what you're doing:
+#AWS_EXPIREY = 60 * 60 * 24 * 7
+#AWS_HEADERS = {
+#    'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
+#        AWS_EXPIREY)
+#}
+
+
+# But anyway, in order to force s3boto to return s3 objects over http, 
+# you need to add this to your settings.py:
+# AWS_S3_SECURE_URLS = False
+
+
+
+###########
+# LOGGING #
+###########
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+}
+
+
+##################
+# MAIL SETTINGS #
+##################
+
+# Easy setup with sendgrid.com or similar service
+#EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+#EMAIL_HOST= "smtp.hostname.com"
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+
+
+# EMAIL_BACKEND = 'django_ses.SESBackend' 
+# AWS_ACCESS_KEY_ID = 'LONGSTRINGHERE' 
+# AWS_SECRET_ACCESS_KEY = 'EVENLONGERSTRINGHERE' 
+# EMAIL_HOST_USER = 'MYAMAZONSESUSER' 
+# EMAIL_USE_TLS = True 
+# EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com' 
+# # The next two lines may not be required; try without them first. 
+# DEFAULT_FROM_EMAIL = SERVER_EMAIL = 'you@yourdomain.com' 
+# FORMS_DISABLE_SEND_FROM_EMAIL_FIELD = True 
+# # The next line is not required, but may be useful. 
+# SEND_BROKEN_LINK_EMAILS = True
+
+#
+# SENDGRID - https://sendgrid.com/docs/Integrate/Frameworks/django.html
+# 
+
+# Default sendgrid settings
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = os.environ.get("SENDGRID_USERNAME", "")
+EMAIL_HOST_PASSWORD = os.environ.get("SENDGRID_PASSWORD", "")
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 ##################
 # LOCAL SETTINGS #
