@@ -23,7 +23,8 @@ a.nav-active {
 
   .navbar-brand h2 {
     /* Remove previous custom set font-size */
-    font-size: 22px;
+    font-size: 18px;
+    padding: 10px 0;
   }
 }
 
