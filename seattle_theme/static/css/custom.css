@@ -19,12 +19,11 @@ a.nav-active {
     color: #98b90f;
 }
 
-@media(max-width:767px) {
 
+@media(max-width:767px){
   .navbar-brand h2 {
-    /* Remove previous custom set font-size */
-    font-size: 18px;
-    padding: 10px 0;
+    font-size: 20px;
+
   }
 }
 
