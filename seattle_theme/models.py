@@ -22,10 +22,10 @@ class IndexPage(Page, RichText):
     A page representing the format of the home/hem/index page
     '''
 
-    image_left = FileField(verbose_name=_("Image"),
+    image_left = FileField(verbose_name=_("Image left"),
         upload_to=upload_to("garis_theme.HomePage.image", "feature_image"),
         format="Image", max_length=255, null=True, blank=True)
-    image_right = FileField(verbose_name=_("Image"),
+    image_right = FileField(verbose_name=_("Image right"),
         upload_to=upload_to("garis_theme.HomePage.image", "feature_image"),
         format="Image", max_length=255, null=True, blank=True)
 
