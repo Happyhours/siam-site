@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from mezzanine.core.fields import FileField, RichTextField
-from mezzanine.core.models import RichText, Orderable, Slugged
+from mezzanine.core.models import RichText, Orderable, Slugged, SiteRelated
 from mezzanine.pages.models import Page
 from mezzanine.utils.models import upload_to
 
@@ -40,7 +40,7 @@ class SitewideContent(SiteRelated):
     Represents the footer content
     '''
     box_one_content = RichTextField()
-    
+
 
     class Meta:
         verbose_name = _('Sitewide Content')
