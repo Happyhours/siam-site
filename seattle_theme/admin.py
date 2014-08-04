@@ -9,8 +9,14 @@ from mezzanine.core.admin import SingletonAdmin
 from seattle_theme.models import (
     HomePage,
     IndexPage,
-    SitewideContent,
+    #SitewideContent,
 )
+
+class HomePageAdmin(IndexAdmin):
+    pass
+
+admin.site.register(HomePage, HomePageAdmin)
+
 
 class IndexPageAdmin(IndexAdmin):
     pass
@@ -18,10 +24,10 @@ class IndexPageAdmin(IndexAdmin):
 admin.site.register(IndexPage, IndexPageAdmin)
 
 
-class SitewideContentAdmin(SingletonAdmin):
-    pass
+#class SitewideContentAdmin(SingletonAdmin):
+#    pass
 
-admin.site.register(SitewideContent, SitewideContentAdmin)
+#admin.site.register(SitewideContent, SitewideContentAdmin)
 
 # class ContactMapInline(TabularDynamicInlineAdmin):
 #     model = ContactMap

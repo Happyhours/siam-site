@@ -156,16 +156,7 @@
 
 		<!-- End content -->
 		<!-- footer -->
-		{% get_sitewide_content as sitewide %}
-        {% if sitewide %}
 
-        	{% editable sitewide.box_one_content %}
-	        	
-	        	{{ sitewide.box_one_content|richtext_filters|safe }}
-	        
-	        {% endeditable %}
-
-		{% endif %}
 
 		<footer id="footerWrapper">
             <!--

@@ -13,8 +13,8 @@ class HomePage(Page, RichText):
     '''
 
     class Meta:
-        verbose_name = _("H page")
-        verbose_name_plural = _("H pages")
+        verbose_name = _("Home page")
+        verbose_name_plural = _("Home pages")
 
 
 class IndexPage(Page, RichText):
@@ -35,13 +35,13 @@ class IndexPage(Page, RichText):
         verbose_name_plural = _("Index pages")
       
 
-class SitewideContent(SiteRelated):
-    '''
-    Represents the footer content
-    '''
-    box_one_content = RichTextField()
+# class SitewideContent(SiteRelated):
+#     '''
+#     Represents the footer content
+#     '''
+#     box_one_content = RichTextField()
 
 
-    class Meta:
-        verbose_name = _('Sitewide Content')
-        verbose_name_plural = _('Sitewide Content')
+#     class Meta:
+#         verbose_name = _('Sitewide Content')
+#         verbose_name_plural = _('Sitewide Content')
