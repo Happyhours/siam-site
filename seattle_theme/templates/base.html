@@ -157,17 +157,29 @@
 
 		<!-- End content -->
 		<!-- footer -->
-		{% get_sitewide_content as sitewide %}
-		{% if sitewide %}
+		<footer id="footerWrapper">
+            <section id="footerRights">
+        		<div class="container">
+        			<div class="row">
+						{% get_sitewide_content as sitewide %}
+						{% if sitewide %}
 
-		    {% editable sitewide.box_one_content %}
-		       
-		    	{{ sitewide.box_one_content|richtext_filters|safe }}
-		       
-		    {% endeditable %}
+						    {% editable sitewide.box_one_content %}
+						       
+						    	{{ sitewide.box_one_content|richtext_filters|safe }}
+						       
+						    {% endeditable %}
 
-		{% endif %}
+						{% endif %}
 
+						<div class="col-md-6">
+                            {% page_menu "pages/menus/footer_tree.html" %}
+        				</div>
+
+       				</div>
+        		</div>
+        	</section>
+		</footer>
 
         {% include "includes/footer_scripts.html" %}
 		<!-- End footer -->
