@@ -1132,7 +1132,7 @@ function initialize(id) {
 
 	var locations = [
         //point number 1
-        ['Siam Massage & Hälsospa', 'Engelbrektsgatan 2, Linköping 58221', 58.415161, 15.619663],
+        ['Siam Massage & Hälsospa', 'Engelbrektsgatan 2', 58.415161, 15.619663],
         ];
 
         /*** DON'T CHANGE ANYTHING PASSED THIS LINE ***/
