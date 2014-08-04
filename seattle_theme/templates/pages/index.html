@@ -26,7 +26,10 @@ free to modify it.
 		</section>
 	</section>
 
-	{{ block.super }}
+	
+	{% editable page.indexpage.content %}
+	{{ page.indexpage.content|richtext_filters|safe }}
+	{% endeditable %}
 
 </section>
 
