@@ -1,5 +1,5 @@
+/* Add margin so scroller in prislista doesent cover text after you used links to scroll */
 nav.stick {
-
     margin-top:12px;
 }
 
@@ -9,7 +9,8 @@ a.nav-active {
 
 
 
-/* Put your custom css here */
+
+/* Logo / header name styling */
 
 .navbar-brand h2 {
     font-size: 26px;
@@ -17,6 +18,16 @@ a.nav-active {
 .navbar-brand span {
     color: #98b90f;
 }
+
+@media(max-width:767px) {
+
+  .navbar-brand h2 {
+    /* Remove previous custom set font-size */
+    font-size: 22px;
+  }
+}
+
+/* Footer styling */
 
 .copyright {
     margin: 10px 0 0 0;
