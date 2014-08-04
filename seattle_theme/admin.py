@@ -12,13 +12,13 @@ from seattle_theme.models import (
     #SitewideContent,
 )
 
-class HomePageAdmin(IndexAdmin):
+class HomePageAdmin(PageAdmin):
     pass
 
 admin.site.register(HomePage, HomePageAdmin)
 
 
-class IndexPageAdmin(IndexAdmin):
+class IndexPageAdmin(PageAdmin):
     pass
 
 admin.site.register(IndexPage, IndexPageAdmin)
