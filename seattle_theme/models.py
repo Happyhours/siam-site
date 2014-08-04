@@ -35,13 +35,13 @@ class IndexPage(Page, RichText):
         verbose_name_plural = _("Index pages")
       
 
-# class SitewideContent(SiteRelated):
-#     '''
-#     Represents the footer content
-#     '''
-#     box_one_content = RichTextField()
+class SitewideContent(SiteRelated):
+    '''
+    Represents the footer content
+    '''
+    box_one_content = RichTextField()
 
 
-#     class Meta:
-#         verbose_name = _('Sitewide Content')
-#         verbose_name_plural = _('Sitewide Content')
+    class Meta:
+        verbose_name = _('Sitewide Content')
+        verbose_name_plural = _('Sitewide Content')

@@ -12,10 +12,10 @@ from seattle_theme.models import (
     #SitewideContent,
 )
 
-class HomePageAdmin(PageAdmin):
-    pass
+#class HomePageAdmin(PageAdmin):
+#    pass
 
-admin.site.register(HomePage, HomePageAdmin)
+#admin.site.register(HomePage, HomePageAdmin)
 
 
 class IndexPageAdmin(PageAdmin):
@@ -24,10 +24,10 @@ class IndexPageAdmin(PageAdmin):
 admin.site.register(IndexPage, IndexPageAdmin)
 
 
-#class SitewideContentAdmin(SingletonAdmin):
-#    pass
+class SitewideContentAdmin(SingletonAdmin):
+   pass
 
-#admin.site.register(SitewideContent, SitewideContentAdmin)
+admin.site.register(SitewideContent, SitewideContentAdmin)
 
 # class ContactMapInline(TabularDynamicInlineAdmin):
 #     model = ContactMap
