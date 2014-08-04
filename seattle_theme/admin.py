@@ -9,7 +9,7 @@ from mezzanine.core.admin import SingletonAdmin
 from seattle_theme.models import (
     HomePage,
     IndexPage,
-    #SitewideContent,
+    SitewideContent,
 )
 
 #class HomePageAdmin(PageAdmin):
