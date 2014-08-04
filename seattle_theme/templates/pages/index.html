@@ -2,10 +2,6 @@
 
 {% load mezzanine_tags staticfiles %}
 
-{% load smart_load %}
-{% load thumbnail from sorl.thumbnail as sorl_thumbnail %}
-
-
 {% block main %}
 <!--
 This template is provided as a custom template for the homepage, for
@@ -16,18 +12,243 @@ free to modify it.
 	<section>
 		<section class="mb15">
 			<div class="nekoDataOwl owl-carousel" data-neko_items="2" data-neko_singleitem="false" data-neko_navigation="false" data-neko_pagination="true" data-neko_mousedrag="true">
-                {% sorl_thumbnail page.indexpage.image_left "800x500" as im %}
-                    <img class="img-responsive" src="{{ im.url }}" alt="siam-massage">
-                {% endthumbnail %}
-                {% sorl_thumbnail page.indexpage.image_right "800x500" as im %}
-                    <img class="img-responsive" src="{{ im.url }}" alt="siam-massage">
-                {% endthumbnail %}
+				<img src="{% static "images/index1.jpeg" %}" alt="SEATTLE premium website template" class="img-responsive"/>
+				<img src="{% static "images/index2.jpeg" %}" alt="SEATTLE premium website template" class="img-responsive"/>
 			</div>
 		</section>
 	</section>
+	<section id="content">
+		<div class="container">
+			<div class="row mt30 mb30">
+				<div class="col-md-4">
+					<h2>Behandlingsmetoder </h2>
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+										Massage
+									</a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse in" >
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+										Spa
+									</a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse" >
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+										Beauty and Health
+									</a>
+								</h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+								</div>
+							</div>
+						</div>
+					</div>
 
-	{{ block.super }}
+					<div class="featureBox mt30">
+						<i class="iconBig iconRounded"><span>20%</span></i>
+						<div class="boxContent">
+							<h2>Erbjudande</h2>
+							<p>
+								20% RABBAT PÅ THAIMASSAGE Elegant layouts that help you organize your content
+							</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-md-4">
+					<h2>Välkommen</h2>
+					<img src="{% static "images/index3.jpeg" %}" alt="" class="img-responsive imgBorder mb15">
+					<p>We create beautiful, modern and professional templates, carefully designed and coded with love</p>
+					<p>
+						Nullam sed tortor odio. Suspendisse tincidunt dictum nisi, nec convallis odio lacinia ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Curabitur auctor.
+					</p>
+					<p>We create beautiful, modern and professional templates, carefully designed and coded with love</p>
+
+				</div>
+				<div class="col-md-4">
+					<h2>Öppettider</h2>
+
+					<table class="table borderless">
+						<tbody>
+
+							<tr>
+								<td class="col-xs-6"> <strong>Måndag - Fredag</strong> </td>
+								<td class="col-xs-6"> <strong>9.00 - 17.00</strong> </td>
+							</tr>
+
+							<tr>
+								<td class="col-xs-6"> <strong>Lördag - Söndag</strong> </td>
+								<td class="col-xs-6"> <strong>10.00 - 15.00</strong> </td>
+							</tr>
+
+						</tbody>
+					</table>
+
+					<h6><strong>Sommarstängt 23 - 29 Juli!</strong></h6>
+
+
+
+				<h2>
+					<span class="primary-color">Boka tid</span>
+				</h2>
+				<p>
+					För att boka en tid vänligen ring oss eller skicka ett mail med hjälp av informationen nedanför.
+					Du kan även kontakta oss genom mail på kontakt sidan.
+					Vi tar emot både kontanter och kortbetalning
+				</p>
+
+				<ul class="list-unstyled iconList">
+					<li><a href="/bra-att-veta">Hur det går till</a></li>
+					<li><a href="/bra-att-veta">Bra att veta</a></li>
+					<li><a href="/prislista">Behandlingar</a></li>
+				</ul>
+
+
+				<p>
+					Tveka inte att höra av dig om du har några frågor eller vill boka tid för behandling.
+				</p>
+
+				<address>
+					<p>
+						<i class="icon-location"></i>&nbsp;Engelbrektsgatan 2<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;582 21, Linköping <br>
+						<i class="icon-phone"></i>&nbsp;072 511 53 39 <br>
+						<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">little@little-neko.com</a>
+					</p>
+				</address>
+
+				<a href="/kontakt" title="premium website templates" class="btn btn-sm btn-primary" target="_blank">
+					Läs mer
+				</a>
+
+
+
+
+                </div>
+
+					<!--<article class="featureBox mt30"  data-nekoanim="fadeInUp" data-nekodelay="100">
+						<div class="boxContent bokaTid">
+							<h2>
+								Boka tid
+							</h2>
+							<p>
+								Nullam sed tortor odio. Suspendisse tincidunt dictum nisi, nec convallis odio lacinia ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Curabitur auctor.
+							</p>
+
+							<ul class="list-unstyled iconList">
+								<li><a href="#">Solace of a lonely highway</a></li>
+								<li><a href="#">Write with purpose</a></li>
+								<li><a href="#">Tree on a lake</a></li>
+								<li><a href="#">Don’t stop questioning</a></li>
+								<li><a href="#">Overheard this morning</a></li>
+							</ul>
+
+
+							<p>
+								Tveka inte att höra av dig om du har några frågor eller vill boka tid för behandling eller träning.
+							</p>
+
+							<address>
+								<p>
+									<i class="icon-location"></i>&nbsp;Engelbrektsgatan 2<br>
+									582 21, Linköping <br>
+									<i class="icon-phone"></i>&nbsp;072 511 53 39 <br>
+									<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">little@little-neko.com</a>
+								</p>
+							</address>
+
+							<a href="http://www.little-neko.com/" title="premium website templates" class="btn btn-sm btn-primary" target="_blank">
+								Read more
+							</a>
+						</div>
+					</article>-->
+
+
+				</div>
+
+				<div class="col-md-12 mb30">
+					<hr class="lineArrow">
+				</div>
+
+				<div class="col-md-4">
+					<article class="featureBox"  data-nekoanim="fadeInUp" data-nekodelay="100">
+						<i class="icon-thumbs-up iconRounded"></i>
+						<div class="boxContent">
+							<h2>
+								Utbud
+							</h2>
+							<p>
+								Nullam sed tortor odio. Suspendisse tincidunt dictum nisi, nec convallis odio lacinia ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Curabitur auctor.
+							</p>
+							<a href="http://www.little-neko.com/" title="premium website templates" class="btn btn-sm btn-primary" target="_blank">
+								Read more
+							</a>
+						</div>
+					</article>
+				</div>
+				<div class="col-md-4">
+					<article class="featureBox"  data-nekoanim="fadeInUp" data-nekodelay="200">
+						<i class="icon-cog iconRounded"></i>
+						<div class="boxContent">
+							<h2>
+								Paket
+							</h2>
+							<p>
+								Nullam sed tortor odio. Suspendisse tincidunt dictum nisi, nec convallis odio lacinia ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Curabitur auctor.
+							</p>
+							<a href="http://www.little-neko.com/" title="premium website templates" class="btn btn-sm btn-primary" target="_blank">
+								Read more
+							</a>
+						</div>
+					</article>
+				</div>
+				<div class="col-md-4">
+					<article class="featureBox"  data-nekoanim="fadeInUp" data-nekodelay="300">
+						<i class="icon-th-large iconRounded"></i>
+						<div class="boxContent">
+							<h2>
+								Karta
+							</h2>
+							<p>
+								Nullam sed tortor odio. Suspendisse tincidunt dictum nisi, nec convallis odio lacinia ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Curabitur auctor.
+							</p>
+							<a href="http://www.little-neko.com/" title="premium website templates" class="btn btn-sm btn-primary" target="_blank">Read more</a>
+						</div>
+					</article>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+
+
+
 
 </section>
 
+{{ block.super }}
 {% endblock %}
