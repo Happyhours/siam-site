@@ -7,9 +7,6 @@ a.nav-active {
     color:red;
 }
 
-
-
-
 /* Logo / header name styling */
 
 .navbar-brand h2 {
@@ -61,6 +58,9 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 76px;
+
+    font-size:16px;
+    line-height: 22px;
 }
 
 footer {
